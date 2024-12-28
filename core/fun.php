@@ -88,26 +88,10 @@ function filterEmoji($str)
 }
 
 
-function curl_down($url, $proxy = 0, $timeout = 15)
+function curl_down($url, $timeout = 15)
 {
-    // 代理服务器的地址和端口
-    $proxyAddress = '127.0.0.1';
-    $proxyPort = 7890;
     // 初始化 cURL
     $curl = curl_init($url);
-
-
-    if ($proxy == 0) {
-        // 设置代理地址和端口
-        curl_setopt($curl, CURLOPT_PROXY, $proxyAddress);
-        curl_setopt($curl, CURLOPT_PROXYPORT, $proxyPort);
-    }else if ($proxy == 2) {
-        $proxyPort = 17890;
-        // 设置代理地址和端口
-        curl_setopt($curl, CURLOPT_PROXY, $proxyAddress);
-        curl_setopt($curl, CURLOPT_PROXYPORT, $proxyPort);
-    }
-
 
     // 设置选项
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
